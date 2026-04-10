@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Failure Detection Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="title-wrap">
+      <h1>AI Failure Detection Dashboard</h1>
+      <p class="subtitle">Powered by Reinforcement Learning</p>
+      <span class="glow-underline"></span>
+    </div>
+    <div class="status-pill">System Health <span id="status" class="badge">...</span></div>
+  </header>
+
+  <main class="dashboard">
+    <section class="card health" id="health-card">
+      <div class="card-header">
+        <h2>System Health</h2>
+      </div>
+      <div class="health-state">
+        <div class="dot" id="health-dot"></div>
+        <div class="state-text" id="health-text">Unknown</div>
+      </div>
+      <p class="muted">Live assessment based on CPU/Memory and recent incidents.</p>
+    </section>
+
+    <section class="card chart">
+      <div class="card-header"><h2>CPU Usage</h2></div>
+      <canvas id="cpuChart" height="150"></canvas>
+    </section>
+
+    <section class="card chart">
+      <div class="card-header"><h2>Memory Usage</h2></div>
+      <canvas id="memChart" height="150"></canvas>
+    </section>
+
+    <section class="card controls">
+      <div class="card-header"><h2>Control Panel</h2></div>
+      <div class="buttons">
+        <button class="btn gradient-blue" id="btn-train">Train AI Model</button>
+        <button class="btn gradient-purple" id="btn-simulate">Simulate Failure</button>
+        <button class="btn gradient-green" id="btn-recover">Run Recovery</button>
+      </div>
+      <small class="muted">Actions trigger Flask endpoints and update the dashboard in real-time.</small>
+    </section>
+
+    <section class="card table">
+      <div class="card-header"><h2>Action Log</h2></div>
+      <table id="actions">
+        <thead>
+          <tr><th>Time</th><th>Action</th><th>Result</th><th>Reward</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Data-Driven Recovery System © 2025 | Built with Python Flask + RL</p>
+  </footer>
+
+  <div id="toast" class="toast" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
+

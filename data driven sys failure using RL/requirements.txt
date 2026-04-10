@@ -1,0 +1,15 @@
+# Core web
+flask==3.0.3
+flask-sqlalchemy==3.1.1
+
+# System metrics
+psutil==6.0.0
+
+# RL stack (Torch already installed in your venv; do not pin here)
+stable-baselines3==2.3.2
+numpy==1.26.4
+pandas==2.2.2
+matplotlib==3.8.4
+
+# SB3 uses Gymnasium (not classic gym)
+gymnasium==0.29.1
